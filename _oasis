@@ -9,6 +9,5 @@ Library "ocaml-pgn"
   Path:       lib
   BuildTools: ocamlbuild
   Modules:    Pgn
-  BuildDepends: batteries
   InternalModules: Pgn_parser, Pgn_lexer, Syntax
   
