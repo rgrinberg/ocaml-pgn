@@ -1,0 +1,14 @@
+OASISFormat: 0.3
+Name:        ocaml-pgn
+Version:     0.0.1
+Synopsis:    Parse .pgn files
+Authors:     Rudi Grinberg
+License:     LGPL-2.1 with OCaml linking exception
+
+Library "ocaml-pgn"
+  Path:       lib
+  BuildTools: ocamlbuild
+  Modules:    Pgn
+  BuildDepends: batteries
+  InternalModules: Pgn_parser, Pgn_lexer, Syntax
+  
