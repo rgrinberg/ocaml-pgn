@@ -24,7 +24,7 @@ result:
   | RESULT { result_of_string $1 }
 
 metadata:
-  | LBRACK LITERAL STRING RBRACK { ($2,$3) }
+  | LBRACK LITERAL STRING RBRACK { create_metadata ~key:$2 ~value:$3 }
 
 metadatas:
   | metadata metadatas { $1::$2 }

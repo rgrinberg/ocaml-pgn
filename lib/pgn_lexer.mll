@@ -20,6 +20,10 @@ rule pgn = parse
       let str = lexeme lexbuf in
       STRING (String.sub str 1 (String.length str - 2)) }
   | ['0'-'9']+ space* '.'+ { pgn lexbuf }
+  (*
+   *$x where x is a number are computer annotations. for now we decide to stirp
+   *them since we do not even parse variations
+   *)
   | '$' ['0'-'9']* { pgn lexbuf }
   | "1/2-1/2" | "1-0" | "0-1" { RESULT (lexeme lexbuf) }
   | move+ { MOVE (lexeme lexbuf) }

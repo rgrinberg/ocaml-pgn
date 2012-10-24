@@ -23,3 +23,6 @@ let result_of_string = function
   | "0-1"     -> Win(Black)
   | "1/2-1/2" -> Draw
   | x         -> raise (Invalid_result x)
+
+(*all keys are lower case*)
+let create_metadata ~key ~value = (String.lowercase key, value)
