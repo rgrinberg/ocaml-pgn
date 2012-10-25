@@ -1,4 +1,3 @@
-
 exception Invalid_result of string
 
 type color = Black | White
@@ -11,12 +10,16 @@ type mdata_element = string * string
 type metadata      = mdata_element list
 
 type move = string
-type moves = string list
+type moves = move list
 
 type game = {
-  metadata: metadata option;
-  moves: moves;
-  result: result option }
+  metadata : metadata option;
+  moves    : moves;
+  (*
+   *we only have special handling for the result metadata because there are 2
+   *ways to obtain it from a pgn file
+   *)
+  result   : result option }
 
 let result_of_string = function
   | "1-0"     -> Win(White)
