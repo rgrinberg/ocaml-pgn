@@ -34,6 +34,11 @@ rule pgn = parse
     failwith ("Bullshit token: " ^ (lexeme lexbuf)) 
   }
 
+
+(*
+ *TODO : match comment delimiters. Right now {(}) is valid but should not be
+ *)
+
 and comments level = parse
   | ')'	{
   		  if level = 0 then pgn lexbuf
