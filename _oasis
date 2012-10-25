@@ -3,11 +3,12 @@ Name:        ocaml-pgn
 Version:     0.0.1
 Synopsis:    Parse .pgn files
 Authors:     Rudi Grinberg
+Plugins: META (0.3)
 License:     LGPL-2.1 with OCaml linking exception
 
-Library "ocaml-pgn"
+Library "pgn"
   Path:       lib
   BuildTools: ocamlbuild
   Modules:    Pgn
   InternalModules: Pgn_parser, Pgn_lexer, Syntax
-  
+  XMETADescription: OCaml library to parse pgn files
