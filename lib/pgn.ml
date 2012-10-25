@@ -7,17 +7,17 @@ include Syntax
 
 exception Inconsistent_result
 
-(*
- *some games have a result metadata element and another result at the
- *end of every game. Make sure that these 2 values match as a sanity
- *check and get rid of the redundant one
- *)
-
 let mdata_value metadata ~key =
   try Some(metadata |> List.assoc key)
   with Not_found -> None
 
 let remove_result mdata = mdata |> List.remove_assoc "result"
+
+(*
+ *some games have a result metadata element and another result at the
+ *end of every game. Make sure that these 2 values match as a sanity
+ *check and get rid of the redundant one
+ *)
 
 let clean_up_game ( { metadata; result; _ } as g) =
   match metadata, result with
