@@ -1,4 +1,3 @@
-(*open Batteries*)
 (*contains all the type defintions for games*)
 
 let (|>) g f = f g
@@ -48,16 +47,17 @@ let clean_up_game ( { metadata; result; _ } as g) =
     end
   | _, _ -> g
 
+(*in case clean_up_game fails or unnecessary these routines can be used*)
+module Raw = struct
+  let parse_lx lx           = Pgn_parser.games Pgn_lexer.pgn lx
+  let parse_channel channel = channel |> Lexing.from_channel |> parse_lx
+  let parse_file f          = parse_channel (open_in f)
+  let parse_str s           = s |> Lexing.from_string |> parse_lx
+end
+
 let clean_up_games gs = gs |> List.map clean_up_game
 
-let parse_of_lx lx = Pgn_parser.games Pgn_lexer.pgn lx
-
-let parse_raw_channel channel = channel |> Lexing.from_channel |> parse_of_lx
-
-let parse_raw_file f = parse_raw_channel (open_in f)
-
-let parse_of_str s = s |> Lexing.from_string |> parse_of_lx |> clean_up_games
-
-let parse_of_file f = f |> parse_raw_file |> clean_up_games
-
-let parse_of_channel ch = ch |> parse_raw_channel |> clean_up_games
+(*main parsing routines*)
+let parse_str s      = s |> Raw.parse_str |> clean_up_games
+let parse_file f     = f |> Raw.parse_file |> clean_up_games
+let parse_channel ch = ch |> Raw.parse_channel|> clean_up_games
