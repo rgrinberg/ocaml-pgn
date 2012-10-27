@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: b07f6f04997f86dac6708df868b98328)
+# DO NOT EDIT (digest: 43d87a7911844389a570a69edd74f9c6)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -15,5 +15,10 @@
 "_darcs": not_hygienic
 # Library pgn
 "lib/pgn.cmxs": use_pgn
+# Executable test_pgn
+"lib_test/test_pgn.byte": use_pgn
+"lib_test/test_pgn.byte": pkg_oUnit
+<lib_test/*.ml{,i}>: use_pgn
+<lib_test/*.ml{,i}>: pkg_oUnit
 # OASIS_STOP
 <**/*.ml>: warn_Z, annot, use-menhir

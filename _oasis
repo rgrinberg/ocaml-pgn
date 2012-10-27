@@ -12,3 +12,16 @@ Library "pgn"
   Modules:    Pgn
   InternalModules: Pgn_parser, Pgn_lexer, Syntax
   XMETADescription: OCaml library to parse pgn files
+
+Executable test_pgn
+  Path: lib_test
+  MainIs: test_pgn.ml
+  Install: false
+  BuildTools: ocamlbuild
+  BuildDepends: pgn, oUnit
+
+Test test_pgn
+  Run$: flag(tests)
+  command: $test_pgn
+  WorkingDirectory: lib_test
+
