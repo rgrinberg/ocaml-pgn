@@ -22,6 +22,11 @@ module Mdata = struct
     with Not_found -> None
 
   let remove_result mdata = mdata |> List.remove_assoc "result"
+
+  let result_exn { result; _ } = 
+    match result with
+    | None -> raise Not_found
+    | Some(r) -> r
 end
 
 open Mdata
@@ -69,7 +74,13 @@ module Raw = struct
   let parse_str s           = s |> Lexing.from_string |> parse_lx
 end
 
-let clean_up_games gs = gs |> List.map clean_up_game
+let clean_up_games gs = 
+  let rec loop acc = function
+    | [] -> List.rev acc
+    | x::xs ->
+        try loop ((clean_up_game x)::acc) xs
+        with Inconsistent_result -> loop acc xs
+  in loop [] gs
 
 (*main parsing routines*)
 let parse_str s      = s |> Raw.parse_str |> clean_up_games
