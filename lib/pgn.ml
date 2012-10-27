@@ -6,11 +6,25 @@ include Syntax
 
 exception Inconsistent_result
 
-let mdata_value metadata ~key =
-  try Some(metadata |> List.assoc key)
-  with Not_found -> None
 
-let remove_result mdata = mdata |> List.remove_assoc "result"
+module Mdata = struct
+  let mdata_value_exn metadata ~key = metadata |> List.assoc key
+
+  let get_exn { metadata; _ } ~key = 
+    match metadata with 
+    | None -> raise Not_found
+    | Some(m) -> mdata_value_exn m ~key
+
+  let get g ~key = try Some(get_exn g ~key) with Not_found -> None
+
+  let mdata_value metadata ~key =
+    try Some(mdata_value_exn metadata ~key)
+    with Not_found -> None
+
+  let remove_result mdata = mdata |> List.remove_assoc "result"
+end
+
+open Mdata
 
 (*
  *some games have a result metadata element and another result at the
@@ -25,7 +39,7 @@ let clean_up_game ( { metadata; result; _ } as g) =
    *and memove the redundant result from metadata
    *)
   | Some(mdata), Some(result) -> begin
-    match mdata_value mdata ~key:"result" with
+    match Mdata.get g ~key:"result" with
     | None -> g
     | Some(res) -> 
         let new_res = result_of_string res in
@@ -39,7 +53,7 @@ let clean_up_game ( { metadata; result; _ } as g) =
    *so we remove that metadata element and transfer it into result
    *)
   | Some(mdata), None -> begin
-      match mdata_value mdata ~key:"result" with
+      match Mdata.get g ~key:"result" with
       | None -> g
       | Some(res) ->
           {g with result=Some(res |> result_of_string);
