@@ -6,7 +6,6 @@ include Syntax
 
 exception Inconsistent_result
 
-
 module Mdata = struct
   let mdata_value_exn metadata ~key = metadata |> List.assoc key
 
@@ -29,8 +28,6 @@ module Mdata = struct
     | Some(r) -> r
 end
 
-open Mdata
-
 (*
  *some games have a result metadata element and another result at the
  *end of every game. Make sure that these 2 values match as a sanity
@@ -50,7 +47,7 @@ let clean_up_game ( { metadata; result; _ } as g) =
         let new_res = result_of_string res in
         if result = new_res then (*everything is consistent*)
           (*update duplicate result from metadata*)
-          {g with metadata=Some(remove_result mdata) }
+          {g with metadata=Some(Mdata.remove_result mdata) }
         else raise Inconsistent_result
     end
   (*
@@ -62,7 +59,7 @@ let clean_up_game ( { metadata; result; _ } as g) =
       | None -> g
       | Some(res) ->
           {g with result=Some(res |> result_of_string);
-           metadata=Some(remove_result mdata) }
+           metadata=Some(Mdata.remove_result mdata) }
     end
   | _, _ -> g
 
