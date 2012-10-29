@@ -79,6 +79,8 @@ let clean_up_games gs =
         with Inconsistent_result -> loop acc xs
   in loop [] gs
 
+let moves { moves; _ } = moves
+
 (*main parsing routines*)
 let parse_str s      = s |> Raw.parse_str |> clean_up_games
 let parse_file f     = f |> Raw.parse_file |> clean_up_games

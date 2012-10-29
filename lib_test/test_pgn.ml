@@ -5,7 +5,7 @@ let pgn_root = "../samples"
 (* Basic sanity check by parsing the simplest game *)
 let g1 = List.hd (Pgn.parse_str "[one \"two\"]\n {foo} 1.e4 e5")
 let test_metadata_1 () = assert_equal (Pgn.Mdata.get_exn g1 ~key:"one") "two"
-let test_metadata_2 () = assert_equal (g1.Pgn.moves) ["e4";"e5"]
+let test_metadata_2 () = assert_equal (Pgn.moves g1) ["e4";"e5"]
 
 (*we want to check that the result of the game is being consistently parsed*)
 
