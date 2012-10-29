@@ -30,7 +30,7 @@ ocaml setup.ml -install # might require sudo
 ```
 #require "pgn";;
 let g = List.hd (Pgn.parse_file "~/fischer-spassky.pgn");;
-(*you can pattern match on g if you want to make exceptions aren't thrown*)
+(*you can pattern match on g if you want to make sure exceptions aren't thrown*)
 let event = Pgn.Mdata.get_exn g ~key:"event";;
 let result = Pgn.Mdata.result_exn g;;
 let moves = g.Pgn.moves;;
