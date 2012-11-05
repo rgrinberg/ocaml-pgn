@@ -5,6 +5,7 @@
 %token EOF
 %token LBRACK RBRACK
 %token LCURLY RCURLY
+%token BAD_TOKEN
 %token <string>MOVE
 %token <string>LITERAL
 %token <string>STRING
@@ -44,6 +45,7 @@ game:
 
 games: 
   | game games { $1::$2 }
+  | error games { $2 }
   | game { [$1] }
 
 %%

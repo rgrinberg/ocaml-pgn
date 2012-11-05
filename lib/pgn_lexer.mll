@@ -28,12 +28,7 @@ rule pgn = parse
   | "1/2-1/2" | "1-0" | "0-1" { RESULT (lexeme lexbuf) }
   | move+ { MOVE (lexeme lexbuf) }
   | eof { EOF }
-  | _ {
-    Printf.printf "Posn %d,%d\n" lexbuf.lex_start_p.pos_lnum
-    lexbuf.lex_start_p.pos_bol;
-    failwith ("Bullshit token: " ^ (lexeme lexbuf)) 
-  }
-
+  | _ { BAD_TOKEN }
 
 (*
  *TODO : match comment delimiters. Right now {(}) is valid but should not be
