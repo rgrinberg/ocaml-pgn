@@ -1,4 +1,5 @@
 exception Invalid_result of string
+exception Delimiter_mismatch
 
 type color = Black | White
 

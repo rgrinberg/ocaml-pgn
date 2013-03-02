@@ -13,6 +13,12 @@ let g2 = List.hd (Pgn.parse_str "[result \"1-0\"]\n 1.e4 e5 1-0")
 let test_result_1 () = assert_equal (Pgn.Mdata.get g2 ~key:"result") None 
 let test_result_2 () = Pgn.( assert_equal (Mdata.result_exn g2) (Win(White)) )
 
+let bad_delims () =
+  assert_raises 
+    ~msg:"bad comments raise an exception"
+    Pgn.Delimiter_mismatch
+    (fun () -> Pgn.parse_str "[result \"1-0\"]\n 1.e4 e5 {bad comment) 1-0")
+
 let test_fixtures = 
   "test pgn parser" >:::
     [
@@ -20,6 +26,7 @@ let test_fixtures =
       "test moves 1" >:: test_metadata_2;
       "test result 1" >:: test_result_1;
       "test result 2" >:: test_result_2;
+      "test bad delimiters" >:: bad_delims;
     ]
 
 let _ = run_test_tt ~verbose:true test_fixtures

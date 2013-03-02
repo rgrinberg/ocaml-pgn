@@ -1,9 +1,9 @@
 {
   Printexc.record_backtrace true
+  open Syntax
   open Pgn_parser
   open Lexing
   exception Unclosed_comments
-  exception Delimiter_mismatch
   let unsafe_list_unpack = function
     | x::xs -> (x, xs)
     | [] -> failwith "Should never be empty"
