@@ -17,8 +17,7 @@ are the limitations:
 * no FEN support
 * No pgn writing support
 * All metadata (except the result) is treated as a string
-* Annotations markers are matched in a "lax" way. For example: { this is
-  a valid annotations ) -- on my todo list however
+* Add option for "lax" delimiters
 
 ### Installation:
 ```
