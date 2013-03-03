@@ -1,5 +1,7 @@
 exception Invalid_result of string
 exception Delimiter_mismatch
+(** thrown by the parse functions if the result in the metadata
+ * does not match the result at the end of the game *)
 exception Inconsistent_result
 
 type color = Black | White
