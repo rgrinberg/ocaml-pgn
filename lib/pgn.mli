@@ -2,15 +2,14 @@ exception Invalid_result of string
 exception Delimiter_mismatch
 exception Inconsistent_result
 
-type color = Syntax.color = Black | White
-type result = Syntax.result = Win of color | Draw
+type color = Black | White
+type result = Win of color | Draw
 type mdata_element = string * string
 type metadata = mdata_element list
 type move = string
 type moves = move list
 
-type game =
-  Syntax.game = {
+type game = {
   metadata : metadata option;
   moves : moves;
   result : result option;
