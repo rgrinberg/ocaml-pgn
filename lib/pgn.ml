@@ -22,10 +22,7 @@ module Mdata = struct
 
   let remove_result mdata = mdata |> List.remove_assoc "result"
 
-  let result_exn { result; _ } = 
-    match result with
-    | None -> raise Not_found
-    | Some(r) -> r
+  let result { result; _ } = result
 end
 
 (*

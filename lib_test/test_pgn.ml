@@ -11,7 +11,7 @@ let test_metadata_2 () = assert_equal (Pgn.moves g1) ["e4";"e5"]
 
 let g2 = List.hd (Pgn.parse_str "[result \"1-0\"]\n 1.e4 e5 1-0")
 let test_result_1 () = assert_equal (Pgn.Mdata.get g2 ~key:"result") None 
-let test_result_2 () = Pgn.( assert_equal (Mdata.result_exn g2) (Win(White)) )
+let test_result_2 () = Pgn.( assert_equal (Mdata.result g2) (Some(Win(White))) )
 
 let bad_delims () =
   assert_raises 

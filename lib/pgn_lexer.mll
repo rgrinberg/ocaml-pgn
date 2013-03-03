@@ -15,8 +15,8 @@ let space = [' ' '\t' '\n' '\r']
 
 rule pgn = parse
   | '[' { LBRACK } (* is it possible to have comments start with this char? *)
-  | '(' { comments 0 ['('] lexbuf }
   | ']' { RBRACK }
+  | '(' { comments 0 ['('] lexbuf }
   | '{' { comments 0 ['{'] lexbuf }
   | ['a'-'z' 'A'-'Z']+ { LITERAL (lexeme lexbuf) }
   | space { pgn lexbuf }
