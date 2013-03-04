@@ -31,7 +31,7 @@ See pgn.mli for more documentation
 let g = List.hd (Pgn.parse_file "~/fischer-spassky.pgn");;
 (*you can pattern match on g if you want to make sure exceptions aren't thrown*)
 let event = Pgn.Mdata.get_exn g ~key:"event";;
-let result = Pgn.Mdata.result_exn g;;
+let result = Pgn.Mdata.result g;;
 let moves = Pgn.moves g;;
 ```
 
