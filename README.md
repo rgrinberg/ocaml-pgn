@@ -12,12 +12,10 @@ are the limitations:
 * All comments/annotations/side lines are ignored. Only the main line is parsed
 * Computer annotations ($x) are stripped
 * No move/metadata validation/conversion of any kind
-* Error handling for incorrect pgn files is bad. (Expect failure on the whole
-  pgn file if a single game cannot be parsed) 
+* No error recovery whatsoever
 * no FEN support
 * No pgn writing support
 * All metadata (except the result) is treated as a string
-* Add option for "lax" delimiters
 
 ### Installation:
 ```
@@ -26,6 +24,8 @@ ocaml setup.ml -all
 ocaml setup.ml -install # might require sudo
 ```
 ### Usage (from the top level):
+
+See pgn.mli for more documentation
 ```
 #require "pgn";;
 let g = List.hd (Pgn.parse_file "~/fischer-spassky.pgn");;
