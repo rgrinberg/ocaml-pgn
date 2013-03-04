@@ -1,4 +1,6 @@
 exception Invalid_result of string
+(** This exception is thrown whenever a game contains annotations with
+ * mismatched delimiters. *)
 exception Delimiter_mismatch
 (** thrown by the parse functions if the result in the metadata
  * does not match the result at the end of the game *)
@@ -17,8 +19,7 @@ type game = {
   result : result option;
 }
 
-val create_metadata : key:string -> value:'a -> string * 'a
-
+(** Module to parse metadata routines *)
 module Mdata :
   sig
     val get_exn : game -> key:string -> string
@@ -26,7 +27,12 @@ module Mdata :
     val result : game -> result option
   end
 
+(** [moves g] return the list of moves in the games. each element in the list
+ * represents a ply *)
 val moves : game -> moves
+
+(** parsing routines from different sources  *)
+
 val parse_str : string -> game list
-val parse_file : string -> game list
+val parse_file : path:string -> game list
 val parse_channel : in_channel -> game list

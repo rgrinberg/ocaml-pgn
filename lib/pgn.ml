@@ -80,5 +80,5 @@ let moves { moves; _ } = moves
 
 (*main parsing routines*)
 let parse_str s      = s |> Raw.parse_str |> clean_up_games
-let parse_file f     = f |> Raw.parse_file |> clean_up_games
+let parse_file ~path = path |> Raw.parse_file |> clean_up_games
 let parse_channel ch = ch |> Raw.parse_channel|> clean_up_games
