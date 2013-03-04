@@ -12,7 +12,7 @@ module Mdata = struct
   let get_exn { metadata; _ } ~key = 
     match metadata with 
     | None -> raise Not_found
-    | Some(m) -> mdata_value_exn m ~key
+    | Some(m) -> mdata_value_exn m ~key:(String.lowercase key)
 
   let get g ~key = try Some(get_exn g ~key) with Not_found -> None
 
