@@ -4,7 +4,7 @@ Version:     0.0.1
 Synopsis:    Parse .pgn files
 Authors:     Rudi Grinberg
 Plugins: META (0.3)
-License:     LGPL-2.1 with OCaml linking exception
+License:     MIT
 
 Library "pgn"
   Path:       lib
