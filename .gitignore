@@ -1,0 +1,11 @@
+
+
+*.byte
+*.native
+myocamlbuild.ml
+lib/META
+lib/pgn.mllib
+setup.data
+setup.log
+setup.ml
+_build/**
