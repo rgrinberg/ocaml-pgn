@@ -1,0 +1,96 @@
+[Event "Live Chess"]
+[Site "Chess.com"]
+[Date "2012.10.21"]
+[White "rgrinberg"]
+[Black "Kanuson"]
+[Result "1-0"]
+[WhiteElo "1675"]
+[BlackElo "1572"]
+[TimeControl "5|0"]
+[Termination "rgrinberg won by resignation"]
+
+1.e4 c6 2.Nc3 Qc7 3.d4 e6 4.Nf3 h6 5.Ne2 Nf6 6.Bf4 d6 7.e5 Nd5 8.Bg3 Be7 9.c4 Nb4 10.Qd2 N4a6
+ 11.Nf4 Nd7 12.Bd3 g5 13.Ne2 d5 14.c5 b5 15.O-O Bb7 16.a4 bxa4 17.Rxa4 Nab8 18.h4 gxh4 19.Bxh4 Qd8 20.Bxe7 Qxe7
+ 21.b4 Nf8 22.b5 Nbd7 23.bxc6 Bxc6 24.Ra6 Nb8 25.Ra3 Ng6 26.Rb1 Qc7 27.Nf4 Kf8 28.Nxg6+ fxg6 29.Bxg6 Qg7 30.Qf4+ Ke7
+ 31.Bh5 Rg8 32.Nh4 Nd7 33.Ng6+ Kd8 34.Rg3 Qh7 35.Qh4+ Kc7 36.Qh3 Nf8 37.Nxf8 Qxb1+ 38.Kh2 Rgxf8 39.Qxe6 Rfd8 40.Rg7+ Rd7
+ 41.Qd6+ Kc8 42.Qxc6+ 1-0
+
+
+[Event "Live Chess"]
+[Site "Chess.com"]
+[Date "2012.10.21"]
+[White "Fulano2"]
+[Black "rgrinberg"]
+[Result "1-0"]
+[WhiteElo "1657"]
+[BlackElo "1666"]
+[TimeControl "5|0"]
+[Termination "Fulano2 won by resignation"]
+
+1.e4 d5 2.exd5 Nf6 3.Nf3 Nxd5 4.Bc4 Be6 5.O-O Nf4 6.Bb5+ c6 7.Ba4 Na6 8.d4 g6 9.Bxf4 1-0
+
+
+[Event "Live Chess"]
+[Site "Chess.com"]
+[Date "2012.10.21"]
+[White "rgrinberg"]
+[Black "0627_tfrankey"]
+[Result "1-0"]
+[WhiteElo "1672"]
+[BlackElo "1571"]
+[TimeControl "5|0"]
+[Termination "rgrinberg won by checkmate"]
+
+1.e4 c5 2.Nc3 e6 3.Nge2 a6 4.d4 Nf6 5.Bg5 cxd4 6.Nxd4 Be7 7.f4 O-O 8.g4 Nc6 9.Be2 Nxd4 10.Qxd4 d6
+ 11.h4 h6 12.Bxf6 Bxf6 13.Qe3 b5 14.g5 Bxc3+ 15.Qxc3 hxg5 16.hxg5 Bb7 17.O-O-O Rc8 18.Qh3 f6 19.g6 Re8 20.Qh8#
+ 1-0
+
+
+[Event "Live Chess"]
+[Site "Chess.com"]
+[Date "2012.10.21"]
+[White "ugur87"]
+[Black "rgrinberg"]
+[Result "1-0"]
+[WhiteElo "1705"]
+[BlackElo "1665"]
+[TimeControl "5|0"]
+[Termination "ugur87 won by resignation"]
+
+1.d4 Nf6 2.c4 g6 3.Nc3 Bg7 4.e4 O-O 5.e5 Ne8 6.f4 d6 7.Nf3 c5 8.dxc5 Qa5 9.cxd6 exd6 10.Bd2 dxe5
+ 11.fxe5 Bg4 12.Nd5 Qd8 13.Bb4 Bxe5 14.Ne7+ Kg7 15.Qxd8 1-0
+
+
+[Event "Live Chess"]
+[Site "Chess.com"]
+[Date "2012.10.21"]
+[White "rgrinberg"]
+[Black "Biscoln"]
+[Result "1-0"]
+[WhiteElo "1674"]
+[BlackElo "1689"]
+[TimeControl "5|0"]
+[Termination "rgrinberg won by checkmate"]
+
+1.e4 b6 2.Nc3 Bb7 3.g3 e6 4.Bg2 Bb4 5.a3 Bxc3 6.bxc3 Ne7 7.Ne2 O-O 8.O-O Nbc6 9.d3 d5 10.Re1 dxe4
+ 11.Bxe4 Na5 12.Bxb7 Nxb7 13.d4 Nd5 14.Qd3 Nd6 15.Nf4 Nxf4 16.Bxf4 Nf5 17.Rad1 Qe7 18.c4 Rfd8 19.d5 Qc5 20.Qc3 exd5
+ 21.Re5 Ne7 22.Rg5 Qxc4 23.Qxg7# 1-0
+
+
+[Event "Live Chess"]
+[Site "Chess.com"]
+[Date "2012.10.21"]
+[White "Biscoln"]
+[Black "rgrinberg"]
+[Result "1-0"]
+[WhiteElo "1697"]
+[BlackElo "1666"]
+[TimeControl "5|0"]
+[Termination "Biscoln won on time"]
+
+1.Nf3 Nf6 2.d4 g6 3.Bg5 Bg7 4.Bxf6 Bxf6 5.c3 d6 6.Nbd2 c5 7.e3 cxd4 8.exd4 Nc6 9.Bd3 Qa5 10.Qc2 Bd7
+ 11.a3 Rc8 12.O-O O-O 13.Nb3 Qh5 14.Nbd2 Bg4 15.Be2 Nxd4 16.Nxd4 Bxe2 17.Nxe2 Qxe2 18.Rfe1 Qh5 19.Ne4 Be5 20.h3 f5
+ 21.Qb3+ Kg7 22.Nd2 b6 23.Nf3 Bf6 24.Nd4 Bxd4 25.Rxe7+ Kh6 26.cxd4 Qg5 27.Rxa7 Rc1+ 28.Rxc1 Qxc1+ 29.Kh2 Qf4+ 30.Qg3 Qxd4
+ 31.f4 1-0
+
+
