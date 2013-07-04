@@ -1,4 +1,5 @@
 open OUnit
+open Chess
 
 let pgn_root = "../samples"
 

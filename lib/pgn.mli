@@ -6,8 +6,6 @@ exception Delimiter_mismatch
  * does not match the result at the end of the game *)
 exception Inconsistent_result
 
-type color = Black | White
-type result = Win of color | Draw
 type mdata_element = string * string
 type metadata = mdata_element list
 type move = string
@@ -16,7 +14,7 @@ type moves = move list
 type game = {
   metadata : metadata option;
   moves : moves;
-  result : result option;
+  result : Chess.result option;
 }
 
 (** Module to parse metadata routines *)
@@ -24,7 +22,7 @@ module Mdata :
   sig
     val get_exn : game -> key:string -> string
     val get : game -> key:string -> string option
-    val result : game -> result option
+    val result : game -> Chess.result option
   end
 
 (** [moves g] return the list of moves in the games. each element in the list

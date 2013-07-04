@@ -1,17 +1,13 @@
 exception Invalid_result of string
 exception Delimiter_mismatch
 
-type color = Black | White
-
-type result = 
-  | Win of color 
-  | Draw
-
 type mdata_element = string * string
 type metadata      = mdata_element list
 
 type move = string
 type moves = move list
+
+open Chess
 
 type game = {
   metadata : metadata option;
