@@ -14,7 +14,7 @@ type moves = move list
 type game = {
   metadata : metadata option;
   moves : moves;
-  result : Chess.result option;
+  result : Game.result option;
 }
 
 (** Module to parse metadata routines *)
@@ -22,7 +22,7 @@ module Mdata :
   sig
     val get_exn : game -> key:string -> string
     val get : game -> key:string -> string option
-    val result : game -> Chess.result option
+    val result : game -> Game.result option
   end
 
 (** [moves g] return the list of moves in the games. each element in the list

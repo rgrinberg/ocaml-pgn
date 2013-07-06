@@ -21,15 +21,25 @@ type game_piece = {
 
 type board (* abstract for now *)
 
+module Castling : sig
+  type t = K | Q | Both | Neither
+  val (+) : t -> t -> t
+  val (-) : t -> t -> t
+end
+
 type coord
 
-type game_state = {
-  board: board;
-  white_castled: bool;
-  black_castled: bool;
-  turn: color;
-  en_passent : coord array;
-  halfmove_clock: int;
-}
+type move
 
-val evaluate : game_state -> [`Finished of result | `Ongoing]
+type state
+
+val create : board: board ->
+  white_castled:Castling.t ->
+  black_castled:Castling.t ->
+  turn:color ->
+  en_passent: coord option ->
+  halfmove_clock:int ->
+  fullmove_clock:int ->
+  state
+
+val evaluate : state -> [`Finished of result | `Ongoing]
