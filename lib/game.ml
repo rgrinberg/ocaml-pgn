@@ -6,32 +6,32 @@ type piece =
   | Bishop
   | Rook
   | Queen
-  | King
+  | King with sexp
 
-type color = Black | White
+type color = Black | White with sexp
 
 type result = 
   | Win of color 
-  | Draw
+  | Draw with sexp
 
 type game_piece = {
   piece : piece;
   (* put this in common *)
   color : color;
-}
+} with sexp
 
-type coord = int * int
+type coord = int * int with sexp
 
-type move = Game.piece * coord * coord
+type move = coord * coord with sexp
 
 (* we don't really pick the most efficient representation memory wise
    since it's not really the goal of this library *)
 
-type board = game_piece option array
+type board = game_piece option array with sexp
 
 (* not sure if this belongs here *)
 module Castling = struct
-  type t = K | Q | Both | Neither
+  type t = K | Q | Both | Neither with sexp
   let (+) r1 r2 = 
     match (r1, r2) with
     | K, Q | Q, K -> Both
@@ -56,7 +56,7 @@ type state = {
   fullmove_clock: int;
   white_king: coord;
   black_king: coord;
-}
+} with sexp
 
 let find_kings board = failwith "TODO"
 

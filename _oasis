@@ -10,7 +10,7 @@ Library chess
   Path: lib
   Findlibname: chess
   Pack: true
-  BuildDepends: core, str
+  BuildDepends: sexplib, sexplib.syntax, core, str
   Modules: Game, Pgn, Fen
   InternalModules: Pgn_parser, Pgn_lexer, Syntax
   XMETADescription: All purpose chess library for OCaml

@@ -46,17 +46,22 @@ module Castling = struct
       return ~white ~black
 end
 
-let piece_positions_of_string str = failwith "TODO"
+let parse_board str = failwith "TODO"
+
+let parse_en_passent _ = failwith "TODO"
 
 let to_game str = 
   match String.split str ~on:' ' with
   | pieces::active::castling::en_passent::halfmove::fullmove::[] ->
-    let pieces = piece_positions_of_string pieces in
+    let board = parse_board pieces in
     let turn = color_of_str active in
     let castling = Castling.castling_of_str castling in
     let halfmove_clock = Int.of_string halfmove in
     let fullmove_clock = Int.of_string fullmove in
-    failwith "TODO"
+    let en_passent = parse_en_passent en_passent in
+    Game.create ~board ~white_castled:castling#white
+      ~black_castled:castling#black ~turn ~en_passent ~halfmove_clock
+      ~fullmove_clock
   | _ -> raise (Invalid_fen str)
 
 let of_game _ = failwith "TODO"

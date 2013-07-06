@@ -5,33 +5,33 @@ type piece =
   | Bishop
   | Rook
   | Queen
-  | King
+  | King with sexp
 
-type color = Black | White
+type color = Black | White with sexp
 
 type result = 
   | Win of color 
-  | Draw
+  | Draw with sexp
 
 type game_piece = {
   piece : piece;
   (* put this in common *)
   color : color
-}
+} with sexp
 
 type board (* abstract for now *)
 
 module Castling : sig
-  type t = K | Q | Both | Neither
+  type t = K | Q | Both | Neither with sexp
   val (+) : t -> t -> t
   val (-) : t -> t -> t
 end
 
-type coord
+type coord with sexp
 
-type move
+type move with sexp
 
-type state
+type state with sexp
 
 val create : board: board ->
   white_castled:Castling.t ->
