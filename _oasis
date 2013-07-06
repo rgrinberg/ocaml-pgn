@@ -1,24 +1,26 @@
 OASISFormat: 0.3
-Name:        ocaml-pgn
-Version:     0.0.1
-Synopsis:    Parse .pgn files
+Name:        ochess
+Version:     0.0.2
+Synopsis:    All purpose chess library for OCaml
 Authors:     Rudi Grinberg
-Plugins: META (0.3)
 License:     MIT
+BuildTools: ocamlbuild
 
-Library "pgn"
-  Path:       lib
-  BuildTools: ocamlbuild
-  Modules:    Pgn
+Library chess
+  Path: lib
+  Findlibname: chess
+  Pack: true
+  BuildDepends: core, str
+  Modules: Game, Pgn, Fen
   InternalModules: Pgn_parser, Pgn_lexer, Syntax
-  XMETADescription: OCaml library to parse pgn files
+  XMETADescription: All purpose chess library for OCaml
 
 Executable test_pgn
   Path: lib_test
   MainIs: test_pgn.ml
   Install: false
   BuildTools: ocamlbuild
-  BuildDepends: pgn, oUnit
+  BuildDepends: chess, oUnit
 
 Test test_pgn
   Run$: flag(tests)
