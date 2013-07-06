@@ -1,3 +1,4 @@
+open Core.Std
 
 type piece = 
   | Pawn
