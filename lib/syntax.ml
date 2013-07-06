@@ -7,7 +7,7 @@ type metadata      = mdata_element list
 type move = string
 type moves = move list
 
-open Chess
+open Game
 
 type game = {
   metadata : metadata option;

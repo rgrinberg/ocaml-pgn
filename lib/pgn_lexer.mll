@@ -6,7 +6,7 @@
   exception Unclosed_comments
   let unsafe_list_unpack = function
     | x::xs -> (x, xs)
-    | [] -> failwith "Should never be empty"
+    | [] -> assert false
 }
 
 let move = ['a'-'z' 'A'-'Z' '0'-'9' '-' '?' '!' '+' '#']+
@@ -33,10 +33,6 @@ rule pgn = parse
   | move+ { MOVE (lexeme lexbuf) }
   | eof { EOF }
   | _ { BAD_TOKEN }
-
-(*
- *TODO : match comment delimiters. Right now {(}) is valid but should not be
- *)
 
 (* context denotes the type of delimiter we use for comments in the current
  * scope. If the closing delimiter does not match the context then we throw
