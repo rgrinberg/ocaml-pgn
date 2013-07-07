@@ -1,6 +1,7 @@
 open OUnit
 open Chess
 open Game
+open Game.Color
 
 let pgn_root = "../samples"
 
