@@ -1,33 +1,27 @@
 open Core.Std
 
-type piece = 
-  | Pawn
-  | Knight
-  | Bishop
-  | Rook
-  | Queen
-  | King with sexp
+module Color = struct
+  type t = Black | White with sexp
+end
 
-type color = Black | White with sexp
+module Piece = Piece
+
+module Board = Board
+
+module Algebraic = Algebraic
 
 type result = 
-  | Win of color 
+  | Win of Color.t
   | Draw with sexp
 
 type game_piece = {
-  piece : piece;
+  piece : Piece.t;
   (* put this in common *)
-  color : color;
+  color : Color.t;
 } with sexp
-
-type coord = int * int with sexp
-
-type move = coord * coord with sexp
 
 (* we don't really pick the most efficient representation memory wise
    since it's not really the goal of this library *)
-
-type board = game_piece option array with sexp
 
 (* not sure if this belongs here *)
 module Castling = struct
@@ -47,15 +41,15 @@ module Castling = struct
 end
 
 type state = {
-  board: board;
+  board: Board.t;
   white_castled: Castling.t;
   black_castled: Castling.t;
-  turn: color;
-  en_passent : coord option;
+  turn: Color.t;
+  en_passent : Board.coord option;
   halfmove_clock: int;
   fullmove_clock: int;
-  white_king: coord;
-  black_king: coord;
+  white_king: Board.coord;
+  black_king: Board.coord;
 } with sexp
 
 let find_kings board = failwith "TODO"
