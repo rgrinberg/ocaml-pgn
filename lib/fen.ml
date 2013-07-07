@@ -5,15 +5,10 @@ exception Invalid_fen of string
 
 exception Invalid_castling_rights of string
 
-type t = string
-
-let of_string t = t
-
-let to_string t = t
-
 let color_of_str s = 
-  if s = "w" then Game.White 
-  else if s = "b" then Game.Black
+  let open Game.Color in
+  if s = "w" then White 
+  else if s = "b" then Black
   else raise (Invalid_fen s)
 
 module Castling = struct
@@ -48,7 +43,11 @@ end
 
 let parse_board str = failwith "TODO"
 
-let parse_en_passent _ = failwith "TODO"
+let color_of_str _ = failwith "TODO"
+
+let parse_en_passent = function
+  | "-" -> None
+  | s -> Some (Algebraic.(s |> of_string |> to_board_coord))
 
 let to_game str = 
   match String.split str ~on:' ' with
