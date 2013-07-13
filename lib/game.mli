@@ -9,13 +9,13 @@ end
 
 module Board :
 sig
-  type t = (Piece.t option) array array with sexp
+  type 'a t = 'a option array array with sexp
   type coord = int * int with sexp
   type move = 
     | Remove of coord 
     | Move of coord * coord with sexp
-  val make_move : t -> move -> unit
-  val create : unit -> t
+  val make_move : 'a t -> move -> unit
+  val create : unit -> 'a t
 end
 
 type result = Win of Color.t | Draw with sexp
@@ -27,7 +27,7 @@ sig
   val ( - ) : t -> t -> t
 end
 type state = {
-  board : Board.t;
+  board : game_piece Board.t;
   white_castled : Castling.t;
   black_castled : Castling.t;
   turn : Color.t;
@@ -39,7 +39,7 @@ type state = {
 }
 val find_kings : 'a -> 'b
 val create :
-  board:Board.t ->
+  board: game_piece Board.t ->
   white_castled:Castling.t ->
   black_castled:Castling.t ->
   turn:Color.t ->

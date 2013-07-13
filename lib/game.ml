@@ -39,7 +39,7 @@ module Castling = struct
 end
 
 type state = {
-  board: Board.t;
+  board: game_piece Board.t;
   white_castled: Castling.t;
   black_castled: Castling.t;
   turn: Color.t;

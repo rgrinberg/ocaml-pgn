@@ -1,6 +1,6 @@
 open Core.Std
 
-type t = Piece.t option array array with sexp
+type 'a t = 'a option array array with sexp
 
 (* a board is 'dumb' it doesn't know what pieces are on the board.
    It simply moves pieces from a square to another square. Multiple moves
