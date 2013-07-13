@@ -76,7 +76,7 @@ let parse_board str =
             board.(!rank).(!file) <- Some (parse_game_piece piece);
             incr rank;
           end);
-    incr file);
+      incr file);
   board
 
 let to_game str = 

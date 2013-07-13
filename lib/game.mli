@@ -15,7 +15,7 @@ sig
     | Remove of coord 
     | Move of coord * coord with sexp
   val make_move : t -> move -> unit
-  val create : dimx:int -> dimy:int -> t
+  val create : unit -> t
 end
 
 type result = Win of Color.t | Draw with sexp

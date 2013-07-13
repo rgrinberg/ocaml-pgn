@@ -19,7 +19,7 @@ let make_move board = function
       board.(x1).(y1) <- None
     end
 
-let create ~dimx ~dimy = Array.make_matrix ~dimx ~dimy None
+let create () = Array.make_matrix ~dimx:8 ~dimy:8 None
 
 let findi board ~f = failwith "TODO"
 
