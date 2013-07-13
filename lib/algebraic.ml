@@ -38,6 +38,18 @@ let file_of_char = function
 
 let rank_of_int x = 8 - x
 
+let string_of_file = function
+  | `a -> "a"
+  | `b -> "b"
+  | `c -> "c"
+  | `d -> "d"
+  | `e -> "e"
+  | `f -> "f"
+  | `g -> "g"
+  | `h -> "h"
+
+let files = [`a; `b; `c; `d ; `e ; `f ; `g ; `h]
+
 type algebraic_coord = file * rank with sexp
 
 let of_string s = 

@@ -71,4 +71,26 @@ let create ~board ~white_castled ~black_castled ~turn ~en_passent
   { board ; white_castled ; en_passent ; black_castled ; turn ;
     halfmove_clock ; fullmove_clock ; white_king ; black_king }
 
+let ascii_square = function
+  | None -> " "
+  | Some {color; piece} -> 
+    match color with
+    | Color.Black -> piece |> Piece.to_string
+    | Color.White -> piece |> Piece.to_string |> String.capitalize
+
+let ascii_board board =
+  (* 8 | K |  |  |  *)
+  let no_files = board
+                 |> Array.mapi ~f:(fun ranki rank -> 
+                     rank
+                     |> Array.map ~f:ascii_square
+                     |> Array.to_list
+                     |> List.cons (ranki |> Algebraic.rank_of_int |> Int.to_string)
+                     |> String.concat ~sep:" | ")
+                 |> Array.to_list in
+  no_files @ [ Algebraic.files
+               |> List.map ~f:Algebraic.string_of_file
+               |> List.cons " "
+               |> String.concat ~sep:" | " ]
+
 let evaluate _ = failwith "TODO"

@@ -10,6 +10,12 @@ val of_board_coord : Board.coord -> algebraic_coord
 
 val to_board_coord : algebraic_coord -> Board.coord
 
+val rank_of_int : int -> int
+
+val string_of_file : file -> string
+
+val files : file list
+
 (** strongly typed moves *)
 module Move : sig
   (* some of these are duplicates for the purpose of making it easier to

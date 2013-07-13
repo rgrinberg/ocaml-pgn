@@ -21,5 +21,5 @@ let make_move board = function
 
 let create () = Array.make_matrix ~dimx:8 ~dimy:8 None
 
+(* TODO implement this for find kings *)
 let findi board ~f = failwith "TODO"
-
