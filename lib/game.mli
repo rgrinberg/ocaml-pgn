@@ -18,8 +18,6 @@ sig
   val create : dimx:int -> dimy:int -> t
 end
 
-module Algebraic : (module type of Algebraic)
-
 type result = Win of Color.t | Draw with sexp
 type game_piece = { piece : Piece.t; color : Color.t; } with sexp
 module Castling :

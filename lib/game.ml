@@ -8,8 +8,6 @@ module Piece = Piece
 
 module Board = Board
 
-module Algebraic = Algebraic
-
 type result = 
   | Win of Color.t
   | Draw with sexp

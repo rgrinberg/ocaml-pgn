@@ -2,7 +2,7 @@ open Core.Std
 
 type rank = int with sexp
 
-type file = [`a | `b | `c | `d | `e | `f | `h | `h] with sexp
+type file = [`a | `b | `c | `d | `e | `f | `g | `h] with sexp
 
 let file_of_char = function
   | 'a' -> `a

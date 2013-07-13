@@ -1,6 +1,6 @@
 type rank = int with sexp
 
-type file = [`a | `b | `c | `d | `e | `f | `h | `h] with sexp
+type file = [`a | `b | `c | `d | `e | `f | `g | `h] with sexp
 
 type algebraic_coord = file * rank with sexp
 

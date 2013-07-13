@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: 044789c5ad555824ab6287226f7667ef)
+# DO NOT EDIT (digest: c2085ef465a6b9dbf01e52c572160547)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -18,6 +18,7 @@
 "lib/game.cmx": for-pack(Chess)
 "lib/pgn.cmx": for-pack(Chess)
 "lib/fen.cmx": for-pack(Chess)
+"lib/algebraic.cmx": for-pack(Chess)
 "lib/pgn_parser.cmx": for-pack(Chess)
 "lib/pgn_lexer.cmx": for-pack(Chess)
 "lib/syntax.cmx": for-pack(Chess)
