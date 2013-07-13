@@ -9,4 +9,4 @@ let game = Chess.Fen.to_game fen_start
 
 let sexp = Game.sexp_of_state game
 
-let () = printf "Beginning position:\n%s\n" (Sexp.to_string_hum sexp)
+let () = printf "\nBeginning position:\n%s\n" (Sexp.to_string_hum sexp)
