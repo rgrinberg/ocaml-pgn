@@ -50,7 +50,20 @@ type state = {
   black_king: Board.coord;
 } with sexp
 
-let find_kings board = failwith "TODO"
+let find_kings board =
+  let (w, b) = (ref None, ref None) in
+  for r = 0 to 7 do
+    for f = 0 to 7 do
+      match board.(r).(f) with
+      | None -> ()
+      | Some {piece=Piece.King; color=Color.Black} ->
+        w := Some (r, f)
+      | Some {piece=Piece.King; color=Color.White} ->
+        b := Some (r, f)
+      | Some _ -> ()
+    done;
+  done;
+  Option.(value_exn !w, value_exn !b)
 
 let create ~board ~white_castled ~black_castled ~turn ~en_passent
     ~halfmove_clock ~fullmove_clock = 
