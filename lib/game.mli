@@ -36,7 +36,7 @@ type state = {
   fullmove_clock : int;
   white_king : Board.coord;
   black_king : Board.coord;
-}
+} with sexp
 
 val create :
   board: game_piece Board.t ->
