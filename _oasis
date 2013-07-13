@@ -27,3 +27,15 @@ Test test_pgn
   command: $test_pgn
   WorkingDirectory: lib_test
 
+Executable test_fen
+  Path: lib_test
+  MainIs: test_fen.ml
+  Install: false
+  BuildTools: ocamlbuild
+  BuildDepends: chess, oUnit
+
+Test test_fen
+  Run$: flag(tests)
+  command: $test_fen
+  WorkingDirectory: lib_test
+
