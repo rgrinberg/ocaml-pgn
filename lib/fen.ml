@@ -43,8 +43,6 @@ end
 
 let parse_board str = failwith "TODO"
 
-let color_of_str _ = failwith "TODO"
-
 let parse_en_passent = function
   | "-" -> None
   | s -> Some (Algebraic.(s |> of_string |> to_board_coord))
