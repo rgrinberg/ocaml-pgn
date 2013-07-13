@@ -43,6 +43,19 @@ end
 
 let parse_board str = failwith "TODO"
 
+let parse_game_piece c = 
+  let color = Game.Color.(if Char.is_uppercase c then White else Black) in
+  let open Game.Piece in
+  let piece = match Char.lowercase c with
+    | 'r' -> Rook
+    | 'n' -> Knight
+    | 'b' -> Bishop
+    | 'k' -> King
+    | 'p' -> Pawn
+    | 'q' -> Queen
+    | _ -> invalid_arg ("invalid piece " ^ (String.of_char c))
+  in Game.({piece ; color})
+
 let parse_en_passent = function
   | "-" -> None
   | s -> Some (Algebraic.(s |> of_string |> to_board_coord))
