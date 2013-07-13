@@ -4,6 +4,7 @@ Version:     0.0.2
 Synopsis:    All purpose chess library for OCaml
 Authors:     Rudi Grinberg
 License:     MIT
+Plugins:     META (0.3)
 BuildTools: ocamlbuild
 
 Library chess
