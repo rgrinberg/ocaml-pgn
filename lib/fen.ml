@@ -41,8 +41,6 @@ module Castling = struct
       return ~white ~black
 end
 
-let parse_board str = failwith "TODO"
-
 let parse_game_piece c = 
   let color = Game.Color.(if Char.is_uppercase c then White else Black) in
   let open Game.Piece in
@@ -59,6 +57,27 @@ let parse_game_piece c =
 let parse_en_passent = function
   | "-" -> None
   | s -> Some (Algebraic.(s |> of_string |> to_board_coord))
+
+let parse_board str =
+  let ranks = String.split str ~on:'/' in
+  let board = Game.Board.create () in
+  let file = ref 0 in
+  ranks |> List.iter ~f:(fun rank_pieces ->
+      let rank = ref 0 in
+      rank_pieces |> String.iter ~f:(fun piece -> 
+          if Char.is_digit piece (* no pieces *) 
+          then
+            let num_pawns = piece |> String.of_char |> Int.of_string in
+            for i = 1 to num_pawns do
+              board.(!rank).(!file) <- None;
+              incr rank
+            done;
+          else begin 
+            board.(!rank).(!file) <- Some (parse_game_piece piece);
+            incr rank;
+          end);
+    incr file);
+  board
 
 let to_game str = 
   match String.split str ~on:' ' with
