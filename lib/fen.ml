@@ -58,6 +58,8 @@ let parse_en_passent = function
   | "-" -> None
   | s -> Some (Algebraic.(s |> of_string |> to_board_coord))
 
+let int_of_char c = c |> String.of_char |> Int.of_string
+
 let parse_board str =
   let ranks = String.split str ~on:'/' in
   let board = Game.Board.create () in
@@ -67,7 +69,7 @@ let parse_board str =
       rank_pieces |> String.iter ~f:(fun piece -> 
           if Char.is_digit piece (* no pieces *) 
           then
-            let num_pawns = piece |> String.of_char |> Int.of_string in
+            let num_pawns = int_of_char piece in
             for i = 1 to num_pawns do
               board.(!rank).(!file) <- None;
               incr rank
