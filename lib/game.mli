@@ -47,3 +47,5 @@ val create :
   halfmove_clock:int -> fullmove_clock:int -> state
 
 val evaluate : 'a -> 'b
+
+val ascii_board : game_piece Board.t -> string

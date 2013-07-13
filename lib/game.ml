@@ -88,9 +88,14 @@ let ascii_board board =
                      |> List.cons (ranki |> Algebraic.rank_of_int |> Int.to_string)
                      |> String.concat ~sep:" | ")
                  |> Array.to_list in
-  no_files @ [ Algebraic.files
+  no_files @ [ 
+    List.init 8 ~f:(fun _ -> "=")
+    |> List.cons " "
+    |> String.concat ~sep:"==="
+    ; Algebraic.files
                |> List.map ~f:Algebraic.string_of_file
                |> List.cons " "
                |> String.concat ~sep:" | " ]
+  |> String.concat ~sep:"\n"
 
 let evaluate _ = failwith "TODO"
