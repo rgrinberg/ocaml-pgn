@@ -63,22 +63,22 @@ let int_of_char c = c |> String.of_char |> Int.of_string
 let parse_board str =
   let ranks = String.split str ~on:'/' in
   let board = Game.Board.create () in
-  let file = ref 0 in
+  let rank = ref 0 in
   ranks |> List.iter ~f:(fun rank_pieces ->
-      let rank = ref 0 in
+      let file = ref 0 in
       rank_pieces |> String.iter ~f:(fun piece -> 
           if Char.is_digit piece (* no pieces *) 
           then
             let num_pawns = int_of_char piece in
             for i = 1 to num_pawns do
               board.(!rank).(!file) <- None;
-              incr rank
+              incr file
             done;
           else begin 
             board.(!rank).(!file) <- Some (parse_game_piece piece);
-            incr rank;
+            incr file;
           end);
-      incr file);
+      incr rank);
   board
 
 let to_game str = 
