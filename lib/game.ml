@@ -93,10 +93,10 @@ let ascii_board board =
     List.init 8 ~f:(fun _ -> "=")
     |> List.cons " "
     |> String.concat ~sep:"==="
-    ; Algebraic.files
-               |> List.map ~f:Algebraic.string_of_file
-               |> List.cons " "
-               |> String.concat ~sep:" | " ]
+  ; Algebraic.files
+    |> List.map ~f:Algebraic.string_of_file
+    |> List.cons " "
+    |> String.concat ~sep:" | " ]
   |> String.concat ~sep:"\n"
 
 let evaluate _ = failwith "TODO"
