@@ -13,7 +13,6 @@ are the limitations:
 * Computer annotations ($x) are stripped
 * No move/metadata validation/conversion of any kind
 * No error recovery whatsoever
-* no FEN support
 * No pgn writing support
 * All metadata (except the result) is treated as a string
 
