@@ -1,8 +1,5 @@
 (*contains all the type defintions for games*)
 
-(* TODO: use core *)
-let (|>) g f = f g
-
 include Syntax
 
 exception Inconsistent_result
