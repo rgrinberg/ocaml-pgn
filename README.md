@@ -21,7 +21,7 @@ are the limitations:
 ```
 oasis setup
 ocaml setup.ml -all
-ocaml setup.ml -install # might require sudo
+ocaml setup.ml -install
 ```
 ### Usage (from the top level):
 
