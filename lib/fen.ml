@@ -1,9 +1,9 @@
 open Core.Std 
 open Str
 
-exception Invalid_fen of string
+exception Invalid_fen of string with sexp
 
-exception Invalid_castling_rights of string
+exception Invalid_castling_rights of string with sexp
 
 let color_of_str s = 
   let open Game.Color in
@@ -17,8 +17,8 @@ module Castling = struct
     in Str.string_match re s 0
 
   let castle_of_c = function
-    | 'K' | 'k' -> Game.Castling.K
-    | 'Q' | 'q' -> Game.Castling.Q
+    | 'K' | 'k' -> Game.Castle.K
+    | 'Q' | 'q' -> Game.Castle.Q
     | _ -> assert false
 
   let castling_of_str s = 
@@ -29,14 +29,14 @@ module Castling = struct
         method black = black
       end
     in
-    let open Game.Castling in
+    let open Game.Castle in
     match s with
     | "-" -> return ~white:Both ~black:Both
     | _ -> 
       let (white, black) = (ref Both, ref Both) in
       s |> String.iter ~f:(fun c -> 
         let color = if Char.is_uppercase c then white else black in
-        color := Game.Castling.(!color - (castle_of_c c)));
+        color := Game.Castle.(!color - (castle_of_c c)));
       let (white, black) = (!white, !black) in
       return ~white ~black
 end
@@ -52,7 +52,7 @@ let parse_game_piece c =
     | 'p' -> Pawn
     | 'q' -> Queen
     | _ -> invalid_arg ("invalid piece " ^ (String.of_char c))
-  in Game.({piece ; color})
+  in {Game.piece ; color}
 
 let parse_en_passent = function
   | "-" -> None
@@ -90,8 +90,12 @@ let to_game str =
     let halfmove_clock = Int.of_string halfmove in
     let fullmove_clock = Int.of_string fullmove in
     let en_passent = parse_en_passent en_passent in
-    Game.create ~board ~white_castled:castling#white
-      ~black_castled:castling#black ~turn ~en_passent ~halfmove_clock
+    Game.create ~board
+      ~white_castle:castling#white
+      ~black_castle:castling#black
+      ~turn
+      ~en_passent
+      ~halfmove_clock
       ~fullmove_clock
   | _ -> raise (Invalid_fen str)
 
