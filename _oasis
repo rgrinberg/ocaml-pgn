@@ -3,6 +3,7 @@ Name:        ochess
 Version:     0.1.0
 Synopsis:    All purpose chess library for OCaml
 Authors:     Rudi Grinberg
+Homepage:    https://github.com/rgrinberg/ocaml-pgn
 License:     MIT
 Plugins:     META (0.4)
 BuildTools: ocamlbuild
@@ -11,7 +12,11 @@ Library chess
   Path: lib
   Findlibname: chess
   Pack: true
-  BuildDepends: sexplib, sexplib.syntax, core, str, threads
+  BuildDepends: sexplib,
+                sexplib.syntax,
+                core,
+                str,
+                threads
   Modules: Game, Pgn, Fen, Algebraic
   InternalModules: Pgn_parser, Pgn_lexer, Syntax
   XMETADescription: All purpose chess library for OCaml
