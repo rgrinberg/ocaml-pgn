@@ -35,8 +35,8 @@ module Castling = struct
     | _ -> 
       let (white, black) = (ref Both, ref Both) in
       s |> String.iter ~f:(fun c -> 
-          let color = if Char.is_uppercase c then white else black in
-          color := Game.Castling.(!color - (castle_of_c c)));
+        let color = if Char.is_uppercase c then white else black in
+        color := Game.Castling.(!color - (castle_of_c c)));
       let (white, black) = (!white, !black) in
       return ~white ~black
 end
@@ -65,20 +65,20 @@ let parse_board str =
   let board = Game.Board.create () in
   let rank = ref 0 in
   ranks |> List.iter ~f:(fun rank_pieces ->
-      let file = ref 0 in
-      rank_pieces |> String.iter ~f:(fun piece -> 
-          if Char.is_digit piece (* no pieces *) 
-          then
-            let num_pawns = int_of_char piece in
-            for i = 1 to num_pawns do
-              board.(!rank).(!file) <- None;
-              incr file
-            done;
-          else begin 
-            board.(!rank).(!file) <- Some (parse_game_piece piece);
-            incr file;
-          end);
-      incr rank);
+    let file = ref 0 in
+    rank_pieces |> String.iter ~f:(fun piece -> 
+      if Char.is_digit piece (* no pieces *) 
+      then
+        let num_pawns = int_of_char piece in
+        for i = 1 to num_pawns do
+          board.(!rank).(!file) <- None;
+          incr file
+        done;
+      else begin 
+        board.(!rank).(!file) <- Some (parse_game_piece piece);
+        incr file;
+      end);
+    incr rank);
   board
 
 let to_game str = 

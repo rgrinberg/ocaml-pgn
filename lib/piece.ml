@@ -1,5 +1,10 @@
-
-type t = Pawn | Knight | Bishop | Rook | Queen | King with sexp
+type t =
+  | Pawn
+  | Knight
+  | Bishop
+  | Rook
+  | Queen
+  | King with sexp
 
 let to_string = function
   | Pawn -> "p"

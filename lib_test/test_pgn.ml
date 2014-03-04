@@ -24,12 +24,12 @@ let bad_delims () =
 
 let test_fixtures = 
   "test pgn parser" >:::
-    [
-      "test mdata 1" >:: test_metadata_1;
-      "test moves 1" >:: test_metadata_2;
-      "test result 1" >:: test_result_1;
-      "test result 2" >:: test_result_2;
-      "test bad delimiters" >:: bad_delims;
-    ]
+  [
+    "test mdata 1" >:: test_metadata_1;
+    "test moves 1" >:: test_metadata_2;
+    "test result 1" >:: test_result_1;
+    "test result 2" >:: test_result_2;
+    "test bad delimiters" >:: bad_delims;
+  ]
 
 let _ = run_test_tt ~verbose:true test_fixtures

@@ -66,7 +66,7 @@ let find_kings board =
   Option.(value_exn !w, value_exn !b)
 
 let create ~board ~white_castled ~black_castled ~turn ~en_passent
-    ~halfmove_clock ~fullmove_clock = 
+      ~halfmove_clock ~fullmove_clock = 
   let (white_king, black_king) = find_kings board in
   { board ; white_castled ; en_passent ; black_castled ; turn ;
     halfmove_clock ; fullmove_clock ; white_king ; black_king }
@@ -81,13 +81,13 @@ let ascii_square = function
 let ascii_board board =
   let no_files = board
                  |> Array.mapi ~f:(fun ranki rank -> 
-                     rank
-                     |> Array.map ~f:ascii_square
-                     |> Array.to_list
-                     |> List.cons (ranki 
-                                   |> Algebraic.rank_of_int
-                                   |> Int.to_string)
-                     |> String.concat ~sep:" | ")
+                   rank
+                   |> Array.map ~f:ascii_square
+                   |> Array.to_list
+                   |> List.cons (ranki 
+                                 |> Algebraic.rank_of_int
+                                 |> Int.to_string)
+                   |> String.concat ~sep:" | ")
                  |> Array.to_list in
   no_files @ [ 
     List.init 8 ~f:(fun _ -> "=")

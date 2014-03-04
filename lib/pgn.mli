@@ -19,11 +19,11 @@ type game = {
 
 (** Module to parse metadata routines *)
 module Mdata :
-  sig
-    val get_exn : game -> key:string -> string
-    val get : game -> key:string -> string option
-    val result : game -> Game.result option
-  end
+sig
+  val get_exn : game -> key:string -> string
+  val get : game -> key:string -> string option
+  val result : game -> Game.result option
+end
 
 (** [moves g] return the list of moves in the games. each element in the list
  * represents a ply *)

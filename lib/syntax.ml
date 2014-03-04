@@ -15,7 +15,7 @@ type game = {
   (*
    *we only have special handling for the result metadata because there are 2
    *ways to obtain it from a pgn file
-   *)
+  *)
   result   : result option }
 
 let result_of_string = function

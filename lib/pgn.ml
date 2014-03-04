@@ -1,5 +1,6 @@
 (*contains all the type defintions for games*)
 
+(* TODO: use core *)
 let (|>) g f = f g
 
 include Syntax
@@ -29,18 +30,18 @@ end
  *some games have a result metadata element and another result at the
  *end of every game. Make sure that these 2 values match as a sanity
  *check and get rid of the redundant one
- *)
+*)
 
 let clean_up_game ( { metadata; result; _ } as g) =
   match metadata, result with
   (*
    *case 1 is when we possible have 2 results so we must make them match
    *and memove the redundant result from metadata
-   *)
+  *)
   | Some(mdata), Some(result) -> begin
-    match Mdata.get g ~key:"result" with
-    | None -> g
-    | Some(res) -> 
+      match Mdata.get g ~key:"result" with
+      | None -> g
+      | Some(res) -> 
         let new_res = result_of_string res in
         if result = new_res then (*everything is consistent*)
           (*update duplicate result from metadata*)
@@ -50,13 +51,13 @@ let clean_up_game ( { metadata; result; _ } as g) =
   (*
    *case 2 is when we have a result in metadata but not at the end of the game
    *so we remove that metadata element and transfer it into result
-   *)
+  *)
   | Some(mdata), None -> begin
       match Mdata.get g ~key:"result" with
       | None -> g
       | Some(res) ->
-          {g with result=Some(res |> result_of_string);
-           metadata=Some(Mdata.remove_result mdata) }
+        {g with result=Some(res |> result_of_string);
+                metadata=Some(Mdata.remove_result mdata) }
     end
   | _, _ -> g
 
@@ -72,8 +73,8 @@ let clean_up_games gs =
   let rec loop acc = function
     | [] -> List.rev acc
     | x::xs ->
-        try loop ((clean_up_game x)::acc) xs
-        with Inconsistent_result -> loop acc xs
+      try loop ((clean_up_game x)::acc) xs
+      with Inconsistent_result -> loop acc xs
   in loop [] gs
 
 let moves { moves; _ } = moves
