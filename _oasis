@@ -12,7 +12,9 @@ Library chess
   Path: lib
   Findlibname: chess
   Pack: true
-  BuildDepends: sexplib,
+  BuildDepends: fieldslib,
+                fieldslib.syntax,
+                sexplib,
                 sexplib.syntax,
                 core,
                 str,
