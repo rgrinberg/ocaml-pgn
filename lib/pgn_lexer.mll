@@ -1,6 +1,6 @@
 {
   Printexc.record_backtrace true
-  open Syntax
+  open Pgn_types
   open Pgn_parser
   open Lexing
   exception Unclosed_comments

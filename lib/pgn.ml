@@ -1,4 +1,4 @@
-include Syntax
+include Pgn_types
 
 exception Inconsistent_result
 

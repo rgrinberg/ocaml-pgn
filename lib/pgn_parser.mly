@@ -1,5 +1,5 @@
 %{
-  open Syntax
+  open Pgn_types
 %}
 
 %token EOF
@@ -13,11 +13,11 @@
 
 %start game
 %start games
-%type <Syntax.game list> games
-%type <Syntax.metadata > metadatas
-%type <Syntax.moves> moves
-%type <Syntax.move> move
-%type <Syntax.game> game
+%type <Pgn_types.game list> games
+%type <Pgn_types.metadata > metadatas
+%type <Pgn_types.moves> moves
+%type <Pgn_types.move> move
+%type <Pgn_types.game> game
 
 %%
 

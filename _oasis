@@ -20,7 +20,7 @@ Library chess
                 str,
                 threads
   Modules: Game, Pgn, Fen, Algebraic
-  InternalModules: Pgn_parser, Pgn_lexer, Syntax
+  InternalModules: Pgn_parser, Pgn_lexer, Pgn_types
   XMETADescription: All purpose chess library for OCaml
 
 Executable test_pgn
