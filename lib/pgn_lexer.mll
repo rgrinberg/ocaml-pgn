@@ -1,5 +1,4 @@
 {
-  Printexc.record_backtrace true
   open Pgn_types
   open Pgn_parser
   open Lexing
