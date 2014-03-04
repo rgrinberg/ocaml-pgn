@@ -2,7 +2,7 @@
 
 Ocaml-pgn is a simple library for parsing (Nothing else) pgn files.
 Currently, the only requirement to use this library is OCaml. However,
-oasis 0.3 is also required to build/install easily and oUnit is required
+oasis 0.4 is also required to build/install easily and oUnit is required
 to run the test suite.
 
 This library does not indend to be a general purpose pgn parsing lib
