@@ -27,5 +27,6 @@ module Move : sig
     | PawnCapture of file * file
     | Promotion of Piece.t * [`Initial of file] * [`Final of file]
     | Move of Piece.t * file * rank
-    | FullMove of Piece.t * file * rank * file * rank with sexp
+    | FullMove of Piece.t * file * rank * file * rank
+  with sexp
 end

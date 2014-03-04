@@ -9,8 +9,10 @@ type 'a t = 'a option array array with sexp
 type coord = int * int with sexp
 
 type move =
-  | Remove of coord (* for en passent only *)
-  | Move of coord * coord with sexp
+  (* removing a piece completely is only needed for en passent *)
+  | Remove of coord
+  | Move of coord * coord
+with sexp
 
 let make_move board = function
   | Remove(x,y) -> board.(x).(y) <- None
