@@ -11,3 +11,5 @@ setup.ml
 _build/**
 Makefile
 *.mlpack
+TAGS
+_tags
