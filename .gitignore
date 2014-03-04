@@ -1,5 +1,5 @@
-
-
+*.mllib
+*.mldylib
 *.byte
 *.native
 myocamlbuild.ml
